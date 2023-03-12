@@ -3,11 +3,9 @@ module Api
   class UsersController < ApplicationController
 
     skip_before_action :verify_authenticity_token
-    before_action  :set_user, except: [:index,:create]
+    before_action  except: [:index,:create]
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+
     def index
       users = User.order('created_at')
 
@@ -42,6 +40,7 @@ module Api
     
     def destroy
       @user = User.find(params[:id])
+
       if @user.destroy
         render json: { status: 'YES!', message: 'User eliminated', data: @user }, status: :ok
       else
@@ -49,6 +48,16 @@ module Api
       end
     end
     
+    def update
+      @user = User.find(params[:id])
+
+      if @user.update(user_params)
+        render json: { status: 'YES!', message: 'User updated', data: @user }, status: :ok
+      else
+        render json: { status: 'error', message: 'User not updated', data: @user.errors }, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def user_params
