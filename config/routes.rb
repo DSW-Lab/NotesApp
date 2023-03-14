@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     resources :users 
 
   end
+
+  resources :notes
+
+  get '/notes', to: 'notes#index'
   
 end

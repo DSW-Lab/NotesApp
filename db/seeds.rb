@@ -7,3 +7,11 @@ User.create({
     confirmpassword: ""
 
 })
+
+
+Note.create({
+    title: "Mi primera nota",
+    content: "Este es el contenido de mi primera nota",
+    user_id: "",
+    is_shared: false
+})
