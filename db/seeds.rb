@@ -1,9 +1,9 @@
 User.create({
 
-    email: "nacho@gmail.com",
-    firstname: "Nacho",
-    lastname: "Ramos",
-    password: "1234567890",
+    email: "prueba123@gmail.com",
+    firstname: "Prueba",
+    lastname: "Rodriguez",
+    password: "12345090",
     confirmpassword: ""
 
 })
