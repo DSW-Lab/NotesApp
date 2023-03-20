@@ -15,3 +15,10 @@ Note.create({
     user_id: "",
     is_shared: false
 })
+
+Note.create({
+    title: "Mi segunda nota",
+    content: "Este es el contenido de mi segunda nota",
+    user_id: "",
+    is_shared: false
+})

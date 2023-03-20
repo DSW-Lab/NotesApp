@@ -19,27 +19,21 @@ before_action :set_note, only: [:show, :edit, :update, :destroy]
   def create
     @note = Note.new(note_params)
 
-    respond_to do |format|
-      if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.json { render :show, status: :created, location: @note }
-      else
-        format.html { render :new }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
+    if @note.save
+      render json: { status: 'YES!', message: 'Note was successfully created.', data: @note }, status: :ok
+    else
+      render json: { status: 'error', message: 'Note not created', data: @note.errors }, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @note }
+    @note = Note.find(params[:id])
+
+      if @note.update(user_params)
+        render json: { status: 'YES!', message: 'Note was successfully updated.', data: @note }, status: :ok
       else
-        format.html { render :edit }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
+        render json: { status: 'error', message: 'Note not updated', data: @note.errors }, status: :unprocessable_entity
       end
-    end
   end
 
   def destroy
