@@ -4,8 +4,7 @@
 
 #### *Subject: Web Systems Development* 
  
- 
-INDEX:
+ _________________________________________________________________________________________________________________________________________________
 
 **1. USER GUIDE**
 
@@ -40,21 +39,70 @@ You should click on this IP address, and it will take you directly to the notes 
 
 ![](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/notesApp.png)
 
+ Now, you can start using MyNotes!
+
+
 - **CREATE NOTES**
 
+To create a new note, the only thing you have to do is click in add a new note icon. After that, some empty fields will appear for you to enter the title and description of the new note.
 
-- Edit Notes
+![click add new note](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/createNote1.png)
+
+Then, write what you want and click on the add note button.
+
+![put title and description](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/createNote2.png)
+
+Once you have created the note, it should appear next to the section for creating notes.
+
+![click 'add note' button](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/createNote3.png)
 
 
-- Delete Notes
+- **EDIT NOTES**
 
-2. DIAGRAMS
+To be able to edit one of the notes that you have already created you must select the 3 buttons that appear in the lower right corner of a note.
 
-      2.1. Use Cases
+![click edit button in the note](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/editNote1.png)
 
-      2.2. Content
+Two different options will appear: edit and delete. On this occasion, we will select the edit option and the note will open, being able to modify its text fields.
 
-      2.3. Navigation
+![change what you want](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/editNote2.png)
 
-      2.4. Presentation
+When we have finished editing the note, we will click on the update note button and the changes we have made will automatically be saved.
+
+![save the new note](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/editNote3.png)
+
+
+
+- **DELETE NOTES**
+
+To be able to delete one of the notes that you have previously created, you must select the 3 buttons that appear in the lower right corner of a note, as in the previous case.
+
+![click delete button in the note you want to delente](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/deleteNote1.png)
+
+Two different options will appear: edit and delete. On this occasion, we will select the delete option and a popup message will appear to confirm if you are sure to delete the note.
+
+![accept/cancel the note deletion](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/deleteNote2.png)
+
+If you select the accept button, the note will disappear permanently. On the contrary, if you select the cancel button, the note will remain in the application.
+
+
+
+
+**2. DIAGRAMS**
+
+
+- **USE CASES**
+
+![use cases diagram](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/useCases.png)
+
+- **CONTENT**
+
+![content diagram](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/content.png)
+
+- **NAVIGATION**
+
+![navigation diagram](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/navigation.png)
+
+- **PRESENTATION**
+![presentation diagram](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/presentation.png)
 
