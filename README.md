@@ -1,24 +1,60 @@
-# README
+# My Notes Web App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### ***Authors: Esther Camacho Caro, Sandra Ciudad Moreno, 	Néstor López Torres and Ignacio Ramos López***
 
-Things you may want to cover:
+#### *Subject: Web Systems Development* 
+ 
+ 
+INDEX:
 
-* Ruby version
+**1. USER GUIDE**
 
-* System dependencies
+- **INTRODUCTION**
+      
+**Write and find the notes very fast.**
 
-* Configuration
+MyNotes allows you to easily and quickly start writing as many notes as you want.
+Thanks to its view as a gallery, you can see all your notes in thumbnails, so it will be very easy for you to find just the note you are looking for.
 
-* Database creation
 
-* Database initialization
+**Write the notes wherever you go.**
 
-* How to run the test suite
+Open MyNotes from any device and enjoy the comfort of writing notes from your computer, mobile or tablet.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+- **RUN SERVER**
 
-* ...
+The first thing you have to do to be able to use the notes application is to run the ruby on rails server. For this, you will have to open the project from an integrated development environment, such as Visual Studio and open a New Terminal.
+
+![running server](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/runServer.png)
+
+After that, type in the terminal the command ‘rails server’ and click enter.
+
+![rails server](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/railsServer.png)
+
+When the execution of ruby on rails server begins, an underlined IP address will appear, like the one in the following image.
+
+![IP address](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/IPaddress.png)
+
+You should click on this IP address, and it will take you directly to the notes application.
+
+![](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/notesApp.png)
+
+- **CREATE NOTES**
+
+
+- Edit Notes
+
+
+- Delete Notes
+
+2. DIAGRAMS
+
+      2.1. Use Cases
+
+      2.2. Content
+
+      2.3. Navigation
+
+      2.4. Presentation
+
