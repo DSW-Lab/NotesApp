@@ -1,23 +1,24 @@
 class SessionsController < ApplicationController
+    respond_to :json
+
     def new
+        @user= user.new
     end
     
+      
     def create
       user = User.find_by(email: params[:email])
-      if user && user.authenticate(params[:password])
-        log_in user
-        params[:remember_me] == '1' ? remember(user) : forget(user)
-        flash.now[:alert] = "email/password combination"
-        redirect_to root_path
+      if user && user.valid_password?(params[:password])
+        sign_in(user)
+        render json: { success: true, message: "valid email or password" }
       else
-        flash.now[:alert] = "Invalid email/password combination"
-        render :new
+        render json: { success: false, message: "Invalid email or password" }
       end
     end
-    
+      
     def destroy
       log_out if logged_in?
-      redirect_to root_url
+        render json: { success: true }
     end
-  end
+end
   
