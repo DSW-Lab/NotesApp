@@ -86,6 +86,34 @@ Two different options will appear: edit and delete. On this occasion, we will se
 If you select the accept button, the note will disappear permanently. On the contrary, if you select the cancel button, the note will remain in the application.
 
 
+___________________________________________________________________________________________________________________________________________________________
+
+- **SIGN IN**
+
+Accessing our note’s application is very simple. 
+
+The first thing you have to do is register in the application, and for this, you will have to enter some information, such as your name, your email address and a password.
+
+Once you have entered these data, you will simply have to accept the terms and conditions and click on the sign in button, and you will be registered.
+
+![sign in](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/sign%20in.jpeg)
+
+- **LOG IN**
+
+After sign in, you will simply have to log in with the email and password that you entered in the previous step.
+
+It should be noted that you have the option for the application to remember you, so that it is much more comfortable for you to access. To do this, you have to click on the ‘Remember me’ button and the application will remember your password for the next times you want to log in.
+
+![log in](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/log%20in.jpeg)
+
+Once you are inside the app, you should be able to see a screen very similar to he one below. 
+
+This means that you have successfully logged in, so, now, you can start creating your notes!
+
+![notes application](https://github.com/DSW-Lab/NotesApp/blob/Rama-Sandra/images/inside%20application.jpeg)
+
+
+___________________________________________________________________________________________________________________________________________________________
 
 
 **2. DIAGRAMS**
