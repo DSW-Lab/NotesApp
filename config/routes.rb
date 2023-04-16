@@ -1,16 +1,6 @@
 Rails.application.routes.draw do
 
-  get "/index", to: "home#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  namespace 'api' do
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
 
-    resources :users 
-
-  end
-
-  resources :notes
-
-  get '/notes', to: 'notes#index'
-  
 end
