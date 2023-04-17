@@ -1,9 +1,10 @@
 class NotesController < ApplicationController
-
-before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:share]
 
   def index
     @notes = Note.all
+    @collection = Collection.all
   end
 
   def show
