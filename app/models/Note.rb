@@ -1,6 +1,11 @@
 class Note < ApplicationRecord
 
     belongs_to :user
-    belongs_to :note_collection, optional: true
-    has_many :shares, dependent: :destroy
+    has_many :collection_notes
+    has_many :note_collections, through: :collection_notes
+    has_many :shares, as: :shareable
+
+    validates :title, presence: true
+    validates :content, presence: true
+    
 end

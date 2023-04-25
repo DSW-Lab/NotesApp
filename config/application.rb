@@ -2,6 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -12,10 +13,18 @@ module NotesApp
     config.load_defaults 7.0
     config.action_controller.default_url_options = { host: '127.0.0.1', port: 3000 }
 
+    config.api_only = false
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_NotesApp_session'
+    
+    # config.api_only = true
+
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
         resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head]
+        # credentials: true
       end
     end
     
