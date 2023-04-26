@@ -1,4 +1,4 @@
-class Api::RegistrationsController < ApplicationController
+class Api::RegistrationsController < Api::ApplicationController
 
   skip_before_action :authenticate_user, only: [:create]
 
@@ -15,6 +15,6 @@ class Api::RegistrationsController < ApplicationController
   private
 
   def user_params
-    params.permit(:email, :password, :password_confirmation)
+    params.permit(:name, :email, :password)
   end
 end
