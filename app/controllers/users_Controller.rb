@@ -1,5 +1,4 @@
-module Api
-  
+
   class UsersController < ApplicationController
 
     skip_before_action :verify_authenticity_token
@@ -63,10 +62,6 @@ module Api
     def user_params
       params.require(:user).permit(:email, :firstname, :lastname, :password, :confirmpassword)
     end
-    
 
-
-    
 
   end
-end

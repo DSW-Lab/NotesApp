@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get "/index", to: "home#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get '/csrf_token', to: 'csrf_tokens#show'
 
   namespace 'api' do
 
@@ -11,9 +10,6 @@ Rails.application.routes.draw do
 
   end
 
-  post "/login", to "users#login"
-  get "/auto_login", to: "users#auto_login"
-
-  get "/notes", to: "notes#index"
+  get '/notes', to: 'notes#index'
   
 end
