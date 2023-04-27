@@ -48,11 +48,14 @@ module Api
       end
     
       def destroy
+        @note = Note.find(params[:id])
         @note.destroy
-        respond_to do |format|
-          format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
-          format.json { head :no_content }
-        end
+        head :no_content
+        #@note.destroy
+        #respond_to do |format|
+        #  format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
+        #  format.json { head :no_content }
+        #end
       end
     
       private
