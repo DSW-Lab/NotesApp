@@ -7,7 +7,7 @@ gem 'bootstrap', '~> 5.2.2'
 
 gem 'jquery-rails'
 
-gem 'rack-cors'
+#gem 'rack-cors'
 gem 'jwt'
 gem 'devise'
 
@@ -84,4 +84,12 @@ gem 'simple_form'
 
 gem "cssbundling-rails", "~> 1.1"
 
+
+# This will allow us to manage Cross Origin Resource Sharing (CORS) and determine which
+# URLS are allowed to make request to our server
 gem 'rack-cors'
+# Json Web Tokens (JWT) 
+gem 'jwt'
+# Encrypts strings, will be used to encrypt new user passwords and verify where passwords
+# at login match the encrypted password in our database
+gem 'bcrypt', '~> 3.1.7'

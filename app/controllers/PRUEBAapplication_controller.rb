@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-    
-    
     before_action :authorized
 
     def encode_token(payload)

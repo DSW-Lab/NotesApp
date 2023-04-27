@@ -2,13 +2,14 @@ module Api
   class NotesController < ApplicationController
 
     before_action :set_note, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user
+    before_action :authorized
+    skip_before_action :verify_authenticity_token
 
       # GET /notes    
       def index
         #@notes = Note.all
         # Solo queremos ver las de ese usuario
-        @notes = Note.find_by user: @user.id
+        @notes = Note.where user: @user.id
         render json: @notes
       end
     

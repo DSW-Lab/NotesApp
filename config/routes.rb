@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   namespace 'api' do
 
     resources :users 
+    post "/login", to: "users#login"
+    get "/auto_login", to: "users#auto_login"
     resources :notes
 
   end
-
-  get '/notes', to: 'notes#index'
   
 end
