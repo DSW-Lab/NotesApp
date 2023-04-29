@@ -1,7 +1,7 @@
   module Api
     class UsersController < ApplicationController
 
-      before_action :authorized, only: [:auto_login]
+      # before_action :authorized, only: [:auto_login]
 
       skip_before_action :verify_authenticity_token
       before_action  except: [:index,:create]
@@ -34,7 +34,7 @@
         @user = User.new(user_params)
       
         if @user.save
-          token = encode_token({user_id: @user.id})
+          # token = encode_token({user_id: @user.id})
           render json: { status: 'YES!', message: 'User created', user: @user, token: token }, status: :ok
         else
           render json: { status: 'error', message: 'User not created', data: @user.errors }, status: :unprocessable_entity
