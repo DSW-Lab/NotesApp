@@ -9,7 +9,12 @@ module Api
 
       # GET /notes    
       def index
-        @notes = current_user.notes
+
+        #@notes = Note.all
+        #@collection = Collection.all
+        # Solo queremos ver las de ese usuario
+        @notes = Note.where user: @user.id
+        render json: @notes
       end
       # GET /notes/1
       def show
