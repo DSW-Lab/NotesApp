@@ -2,17 +2,15 @@ module Api
   class NotesController < ApplicationController
 
     before_action :set_note, only: [:show, :edit, :update, :destroy]
-    before_action :authorized
-    skip_before_action :verify_authenticity_token
+    protect_from_forgery with: :null_session
+
+    # before_action :authorized
+    # skip_before_action :verify_authenticity_token
 
       # GET /notes    
       def index
-        #@notes = Note.all
-        # Solo queremos ver las de ese usuario
-        @notes = Note.where user: @user.id
-        render json: @notes
+        @notes = current_user.notes
       end
-    
       # GET /notes/1
       def show
         render json: @note
@@ -25,17 +23,32 @@ module Api
       def edit
       end
     
+      def current_user
+        @current_user = User.find_by(id: $current_user_id)
+      end
+
+      
       # POST /notes
       def create
-        @note = Note.new(note_params)
-        @note.user_id = @user
-    
+
+        @note = current_user.notes.build(note_params)
         if @note.save
-          render json: { status: 'YES!', message: 'Note was successfully created.', data: @note }, status: :ok
+          render json: {
+  
+            status: 'YES!',
+            message: 'Nota creada',
+            data: @Note
+          }, status: :ok        
         else
-          render json: { status: 'error', message: 'Note not created', data: @note.errors }, status: :unprocessable_entity
+          render json: {
+  
+            status: 'NO!',
+            message: 'Note loaded',
+            data: @Note
+          }, status: :ok        
         end
       end
+    
     
       def update
         @note = Note.find(params[:id])
@@ -64,7 +77,7 @@ module Api
         end
     
         def note_params
-          params.require(:note).permit(:title, :content, :user_id, :shared, :created_at)
+          params.require(:note).permit(:title, :content,:user_id, :is_shared)
         end
     
     

@@ -1,18 +1,18 @@
 module Api
     class ApplicationController < ActionController::Base
-        # before_action :authorized
         include ActionController::RequestForgeryProtection
         
         protect_from_forgery with: :null_session
-        before_action :authenticate_user
+        # before_action :authenticate_user
 
-        private
+        # private
 
     
-        def authenticate_user
-            @current_user = User.find_by(id: session[:user_id])
-            render json: { status: 'error', message: 'Unauthorized' }, status: :unauthorized unless @current_user
-        end
+        # def authenticate_user
+        #     @current_user = User.find_by(id: session[:user_id])
+        #     puts "@current_user: #{@current_user}"
+        #     render json: { status: 'error', message: 'Unauthorized' }, status: :unauthorized unless @current_user
+        # end
 
         # def encode_token(payload)
         #     JWT.encode(payload, 'yourSecret')

@@ -3,7 +3,7 @@
 
       # before_action :authorized, only: [:auto_login]
 
-      skip_before_action :verify_authenticity_token
+      # skip_before_action :verify_authenticity_token
       before_action  except: [:index,:create]
   
   
@@ -27,6 +27,11 @@
           message: 'User loaded',
           data: @User
         }, status: :ok
+      end
+
+      def current_user
+        @current_user ||= User.find_by(id: session[:user_id])
+        return @current_user
       end
   
       # REGISTER
