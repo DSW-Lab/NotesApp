@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
 
-  get "/index", to: "home#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get '/csrf_token', to: 'csrf_tokens#show'
 
-  namespace 'api' do
-
-    resources :users 
-
+  namespace :api, defaults: { format: :json } do
+    get '/csrf_token', to: 'csrf_tokens#show'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+    post 'register', to: 'registrations#create'
   end
-
-  resources :notes
-
-  get '/notes', to: 'notes#index'
-  
 end

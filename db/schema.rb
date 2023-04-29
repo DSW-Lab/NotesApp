@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_12_165714) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_25_170633) do
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "friend_id", null: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
   create_table "notes", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -21,13 +31,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_165714) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "email"
-    t.string "firstname"
-    t.string "lastname"
-    t.string "password"
-    t.string "confirmpassword"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
+  add_foreign_key "friendships", "friends"
+  add_foreign_key "friendships", "users"
 end
