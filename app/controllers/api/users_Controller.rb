@@ -35,7 +35,7 @@
       
         if @user.save
           # token = encode_token({user_id: @user.id})
-          render json: { status: 'YES!', message: 'User created', user: @user, token: token }, status: :ok
+          render json: { status: 'YES!', message: 'User created', user: @user }, status: :ok
         else
           render json: { status: 'error', message: 'User not created', data: @user.errors }, status: :unprocessable_entity
         end

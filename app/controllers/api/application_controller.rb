@@ -2,6 +2,7 @@ module Api
     class ApplicationController < ActionController::Base
         # before_action :authorized
         include ActionController::RequestForgeryProtection
+        
         protect_from_forgery with: :null_session
         before_action :authenticate_user
 
