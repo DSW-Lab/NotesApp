@@ -2,7 +2,7 @@ module Api
   class NotesController < ApplicationController
 
     before_action :set_note, only: [:show, :edit, :update, :destroy]
-    before_action :authorized
+    before_action :authenticate_user
     skip_before_action :verify_authenticity_token
 
       # GET /notes    
@@ -28,7 +28,7 @@ module Api
       # POST /notes
       def create
         @note = Note.new(note_params)
-        @note.user_id = @user
+        @note.user_id = @user.id
     
         if @note.save
           render json: { status: 'YES!', message: 'Note was successfully created.', data: @note }, status: :ok
@@ -60,7 +60,10 @@ module Api
     
       private
         def set_note
-          @note = Note.find(params[:id])
+          @note = Note.find_by(id: params[:id], user_id: @user.id)
+          if @note.nil?
+            render json: { status: 'error', message: 'Note not found' }, status: :not_found
+          end
         end
     
         def note_params
