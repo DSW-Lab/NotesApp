@@ -1,21 +1,19 @@
 module Api
   class NotesController < ApplicationController
 
+    before_action :set_user
     before_action :set_note, only: [:show, :edit, :update, :destroy]
     protect_from_forgery with: :null_session
 
     # before_action :authorized
     # skip_before_action :verify_authenticity_token
 
-      # GET /notes    
-      def index
+    # GET /notes    
+    def index
+      @notes = Note.where(user_id: @user.id)
+      render json: @notes
+    end  
 
-        #@notes = Note.all
-        #@collection = Collection.all
-        # Solo queremos ver las de ese usuario
-        @notes = Note.where user: @user.id
-        render json: @notes
-      end
       # GET /notes/1
       def show
         render json: @note
@@ -35,18 +33,15 @@ module Api
       
       # POST /notes
       def create
-
         @note = current_user.notes.build(note_params)
         if @note.save
           render json: {
-  
             status: 'YES!',
             message: 'Nota creada',
             data: @Note
           }, status: :ok        
         else
           render json: {
-  
             status: 'NO!',
             message: 'Note loaded',
             data: @Note
@@ -77,17 +72,19 @@ module Api
       end
     
       private
-        def set_note
-          @note = Note.find(params[:id])
-        end
-    
-        def note_params
-          params.require(:note).permit(:title, :content,:user_id, :is_shared)
-        end
-    
-    
+      
+      def set_note
+        @note = Note.find(params[:id])
+      end
+      
+      def set_user
+        @user = User.find_by(id: $current_user_id)
+      end
+  
+      def note_params
+        params.require(:note).permit(:title, :content, :is_shared)
+      end
   end
-
 end
     
 
