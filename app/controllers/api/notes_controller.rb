@@ -38,14 +38,14 @@ module Api
           render json: {
             status: 'YES!',
             message: 'Nota creada',
-            data: @Note
+            data: @note
           }, status: :ok        
         else
           render json: {
-            status: 'NO!',
-            message: 'Note loaded',
-            data: @Note
-          }, status: :ok        
+          status: 'error',
+          message: 'Error al crear la nota',
+          data: @note.errors
+          }, status: :unprocessable_entity     
         end
       end
     
