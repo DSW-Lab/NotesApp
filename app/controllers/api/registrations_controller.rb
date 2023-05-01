@@ -1,10 +1,6 @@
 class Api::RegistrationsController < Api::ApplicationController
 
-<<<<<<< HEAD
-  skip_before_action  only: [:create]
-=======
   skip_before_action only: [:create]
->>>>>>> c0d318ed961398b6c7552407fe852378ba49e840
 
   def create
     user = User.new(user_params)
