@@ -51,9 +51,13 @@ module Api
     
     
       def update
+        if params[:id].nil?
+          render json: { status: 'error', message: 'Id de nota faltante' }, status: :unprocessable_entity
+          return
+        end
         @note = Note.find(params[:id])
     
-          if @note.update(user_params)
+          if @note.update(note_params)
             render json: { status: 'YES!', message: 'Note was successfully updated.', data: @note }, status: :ok
           else
             render json: { status: 'error', message: 'Note not updated', data: @note.errors }, status: :unprocessable_entity
