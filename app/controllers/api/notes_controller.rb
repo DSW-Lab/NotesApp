@@ -5,7 +5,7 @@ module Api
     before_action :set_note, only: [:show, :edit, :update, :destroy]
     protect_from_forgery with: :null_session
 
-    # before_action :authorized
+    before_action :authenticate_user
     # skip_before_action :verify_authenticity_token
 
     # GET /notes    

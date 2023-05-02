@@ -1,32 +1,43 @@
   module Api
     class UsersController < ApplicationController
 
-      # before_action :authorized, only: [:auto_login]
+      before_action :authenticate_user, only: [:create]
 
       # skip_before_action :verify_authenticity_token
       before_action  except: [:index,:create]
   
   
       def index
-        users = User.order('created_at')
+
+        if $current_user_id.nil?
+          render json: { status: 'error', message: 'Invalid way... try to login.'}
+        else
+          users = User.order('created_at')
   
-        render json: {
-  
-          status: 'YES!',
-          message: 'Users loaded',
-          data: users
-        }, status: :ok
+          byebug
+          render json: {
+    
+            status: 'YES!',
+            message: 'Users loaded',
+            data: users
+          }, status: :ok
+        end
       end
   
       def show
         
-        @User =User.find(params[:id])
-        render json: {
-  
-          status: 'YES!',
-          message: 'User loaded',
-          data: @User
-        }, status: :ok
+        if $current_user_id.nil?
+          render json: { status: 'error', message: 'Invalid way... try to login.'}
+        else
+          @User =User.find(params[:id])
+          render json: {
+    
+            status: 'YES!',
+            message: 'User loaded',
+            data: @User
+          }, status: :ok
+
+        end  
       end
 
       def current_user

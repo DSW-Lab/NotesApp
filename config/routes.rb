@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     get 'notes', to: 'notes#index'
 
     resources :users
+
+    resources :friendships, only: [:index, :create, :update, :destroy]
+    resources :shares, only: [:create]
   end
   
 end

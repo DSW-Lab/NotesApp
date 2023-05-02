@@ -18,9 +18,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_170633) do
   end
 
   create_table "friendships", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "friend_id", null: false
-    t.integer "status"
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
@@ -44,6 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_170633) do
     t.string "password_digest"
   end
 
-  add_foreign_key "friendships", "friends"
   add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
 end
