@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     delete 'notes', to: 'notes#destroy'
     put 'notes', to: 'notes#update'
     get 'notes', to: 'notes#index'
+
+    resources :users
   end
   
 end
