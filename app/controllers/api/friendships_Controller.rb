@@ -8,7 +8,6 @@ module Api
       def index
         @current_user = User.find_by(id: $current_user_id)
         @friends = @current_user.friends
-        byebug
         render json: @friends
       end
   

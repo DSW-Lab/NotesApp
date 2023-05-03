@@ -14,7 +14,6 @@
         else
           users = User.order('created_at')
   
-          byebug
           render json: {
     
             status: 'YES!',
